@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+    app:
+        container_name: rr_app
+        build:
+            context: .
+            dockerfile: docker/r_runner/Dockerfile
+            args:
+                HOST_UID: ${HOST_UID}
+                HOST_GID: ${HOST_GID}
+        ports:
+            - "80:8080"
+        volumes:
+            - ./:/var/www/html
